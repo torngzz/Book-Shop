@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:fragment="layout">
+<head>
+    <meta charset="UTF-8">
+    <title>E-Shop Management</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div th:fragment="layout">
+    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light" th:fragment="menu">
+        <a class="navbar-brand" href="#">E-Shop Management</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/books}">Books</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/books/addBook}">Add New Book</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3" th:fragment="sidebar">
+                <ul class="list-group">
+                    <li class="list-group-item"><a th:href="@{/books}">Book List</a></li>
+                    <li class="list-group-item"><a th:href="@{/books/addBook}">Add New Book</a></li>
+                </ul>
+            </div>
+            <div class="col-md-9">
+                <div th:insert="~{::content}"></div>
+            </div>
+        </div>
+    </div> -->
+
+    <nav class="navbar navbar-expand-lg navbar-primary bg-primary" th:fragment="menu">
+      <div class="container-fluid navbar-container">
+        <a class="navbar-brand text-white fw-bold" href="#">E-SHOP</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"> </span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav navItems">
+            <li class="nav-item">
+              <a class="nav-link active text-white" aria-current="page" href="#homeSection"
+                >PROMOTION
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="#shopSection">SHOP</a>
+            </li>
+            <li class="nav-item nav-item-products">
+              <a class="nav-link text-white" href="#productSection">PRODUCTS</a>
+              <!-- <ul class="nav-items-dropdown">
+                <li class="nav-item-dropdown">
+                  <a href="" class="nav-link-dropdown">LAPTION</a>
+                </li>
+                <li class="nav-item-dropdown">
+                  <a href="" class="nav-link-dropdown">DESKTOP</a>
+                </li>
+                <li class="nav-item-dropdown">
+                  <a href="" class="nav-link-dropdown">ACCESSORY</a>
+                </li>
+              </ul> -->
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="#footerSection">CONTACT US</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div th:insert="~{::content}"></div>
+            </div>
+        </div>
+    </div>
+    <!-- <section id="homeSection"></section>
+    <section id="productSection"></section>
+    <section id="footerSection"></section> -->
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
