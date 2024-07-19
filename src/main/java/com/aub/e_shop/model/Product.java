@@ -9,50 +9,52 @@ import jakarta.persistence.Id;
 public class Product {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Long ID;
-    private String NAME;
-    private Double PRICE;
-    private String CATEGORY_ID;
-    private String IMAGE;
+    private Long id;
+    private String name;
+    private Double price;
+    private String category_id;
+    private String image;
 
-    public void setID(Long ID) {
-        this.ID = ID;
+    public Long getId() {
+        return id;
     }
 
-    public Long getID() {
-        return ID;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public void setNAME(String NAME) {
-        this.NAME = NAME;
+    public String getName() {
+        return name;
     }
 
-    public String getNAME() {
-        return NAME;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setPRICE(Double PRICE) {
-        this.PRICE = PRICE;
+    public Double getPrice() {
+        return price;
     }
 
-    public Double getPRICE() {
-        return PRICE;
+    public void setPrice(Double price) {
+        this.price = price;
     }
 
-    public String getCATEGORY_ID() {
-        return CATEGORY_ID;
+    public String getCategory_id() {
+        return category_id;
     }
 
-    public void setCATEGORY_ID(String CATEGORY_ID) {
-        this.CATEGORY_ID = CATEGORY_ID;
+    public void setCategory_id(String category_id) {
+        this.category_id = category_id;
     }
 
-    public String getIMAGE() {
-        return IMAGE;
+    public String getImage() {
+        return image;
     }
 
-    public void setIMAGE(String IMAGE) {
-        this.IMAGE = IMAGE;
+    public void setImage(String image) {
+        this.image = image;
     }
+
+    
  
 }
