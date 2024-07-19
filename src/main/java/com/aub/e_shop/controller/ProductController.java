@@ -26,11 +26,22 @@ public class ProductController {
         return "Interface";
     }
 
-    @GetMapping("/getById{id}")
-    public String getProById(@PathVariable("id") Long id, Model m)
-    {
-        Optional<Product> pro = productService.getById(id);
-        m.addAttribute("product", pro.orElse(new Product()));
-        return "product-view-form";
-    }
+    // @GetMapping("/getById{id}")
+    // public String getProById(@PathVariable("id") Long id, Model m)
+    // {
+    //     Optional<Product> pro = productService.getById(id);
+    //     m.addAttribute("product", pro.orElse(new Product()));
+    //     return "product-view-form";
+    // }
+        @GetMapping("/details/{id}")
+        public String getProductDetails(@PathVariable("id") Long id, Model model) {
+            Optional<Product> product = productService.getById(id);
+            if (product.isPresent()) {
+                model.addAttribute("product", product.get());
+                return "Viewdetail";
+            } else {
+                return "redirect:/products/not-found";
+            }
+        }
+
 }
