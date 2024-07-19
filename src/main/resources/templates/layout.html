@@ -3,58 +3,36 @@
   <head>
     <meta charset="UTF-8" />
     <title>E-Shop Management</title>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
   </head>
   <body>
     <div th:fragment="layout">
-
-      <nav
-        class="navbar navbar-expand-lg"
-        style="background-color: #456AD8;"
-        th:fragment="menu"
-      >
-        <div class="container-fluid navbar-container">
-          <a class="navbar-brand text-white fw-bold" href="#">E-SHOP</a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"> </span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav navItems text">
-              <li class="nav-item">
-                <a
-                  class="nav-link active text-white"
-                  aria-current="page"
-                  href="#homeSection"
-                  >PROMOTION
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-white" href="#shopSection">SHOP</a>
-              </li>
-              <li class="nav-item nav-item-products">
-                <a class="nav-link text-white" href="#productSection">
-                  PRODUCTS
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-white" href="#footerSection"
-                  >CONTACT US</a
-                >
-              </li>
-            </ul>
+        <nav class="navbar navbar-expand-lg d-flex justify-content-between" style="background-color: #456AD8;">
+          <div class="container-fluid">
+              <a class="navbar-brand text-white fw-bold" href="#">E-SHOP</a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon fa-solid fa-bars text-white text-center pt-1"></span>
+              </button>
+              <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                  <ul class="navbar-nav navItems text">
+                      <li class="nav-item">
+                          <a class="nav-link active text-white" aria-current="page" href="#homeSection">PROMOTION </a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link text-white" href="#shopSection">SHOP</a>
+                      </li>
+                      <li class="nav-item nav-item-products">
+                          <a class="nav-link text-white" href="#productSection">PRODUCTS </a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link text-white" href="#footerSection">CONTACT US</a>
+                      </li>
+                      <div class="nav-item nav-item-cart">
+                          <i class="nav-link fa-solid fa-cart-shopping text-white"></i>
+                      </div>
+                  </ul>
+              </div>
           </div>
-        </div>
       </nav>
 
       <!-- Sidebar -->
@@ -84,14 +62,55 @@
             <hr class="sidebar-divider" />
           </div>
 
-          <div class="col-md-9 container">
+          <div class="col-md-10 container">
+            <div id="carousel" class="">
+              <!-- Top Selling -->
+              <div class="top">
+                <div class="row mb-5">
+                  <div class="col-md-4 col-sm-4">
+                    <div class="card shadow">
+                      <div class="card-body h-100 w-100">
+                        <img th:src="'https://via.placeholder.com/150?text=Best Selling Product Image'" class="h-75 w-100" alt="">
+                      </div>
+                      <div class="card-header text-white fw-bold" style="background-color: #456AD8;">
+                        <h5 class="text-center">Best Selling</h5>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-sm-4">
+                    <div class="card shadow">
+                      <div class="card-body h-100 w-100">
+                        <img th:src="'https://via.placeholder.com/150?text=Discounted Product Image'" class="h-75 w-100" alt="">
+                      </div>
+                      <div class="card-header text-white fw-bold" style="background-color: #456AD8;">
+                        <h5 class="text-center">Discounted Products</h5>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-sm-4">
+                    <div class="card shadow">
+                      <div class="card-body h-100 w-100">
+                        <img th:src="'https://via.placeholder.com/150?text=Hot Product Image'" class="h-75 w-100" alt="">
+                      </div>
+                      <div class="card-header text-white fw-bold" style="background-color: #456AD8;">
+                        <h5 class="text-center">New Arrival</h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr>
+            <!-- Content -->
             <div th:insert="~{::content}"></div>
           </div>
         </div>
       </div>
+    </div>
 
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://kit.fontawesome.com/4000b889e3.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
