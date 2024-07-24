@@ -54,7 +54,7 @@
   <div class="row">
     <div th:each="product : ${products}" class="col-md-3 col-sm-4 my-3">
       <div class="card shadow h-100 w-100">
-        <a th:href="@{/products/details/{id}(id=${product.productId})}">
+        <a th:href="@{/products/details/{id}(id=${product.product_id})}">
           <div class="card-header text-white fw-bold" style="background-color: #456AD8;">
             <h5>Laptop</h5>
           </div>
@@ -69,6 +69,14 @@
               </div>
           </div>
         </a>
+        <div class="card-footer">
+          <form th:action="@{/cart/add}" method="post" class="btn-sm text-center">
+              <input type="hidden" th:name="product_id" th:value="${product.product_id}" />
+              <button type="submit" class="btn btn-success btn-block">
+                <i class="fas fa-cart-plus"></i> Add to Cart
+              </button>
+          </form>
+      </div>
       </div>
     </div>
   </div>
