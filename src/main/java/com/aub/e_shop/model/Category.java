@@ -2,20 +2,18 @@ package com.aub.e_shop.model;
 
 import java.util.Date;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
+// @Table(name = "category")
 public class Category {
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-
-    
+    @GeneratedValue(strategy=GenerationType.IDENTITY) 
     private Long id;
-    private String name;
+    private String cate_name;
     private String description;
     private Date created_date;
     private String created_by;
@@ -44,20 +42,20 @@ public class Category {
         this.created_date = created_date;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getCreated_by() {
         return created_by;
     }
 
     public void setCreated_by(String created_by) {
         this.created_by = created_by;
+    }
+
+    public String getCate_name() {
+        return cate_name;
+    }
+
+    public void setCate_name(String cate_name) {
+        this.cate_name = cate_name;
     }
 
    

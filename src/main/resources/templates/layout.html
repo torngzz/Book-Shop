@@ -4,6 +4,20 @@
     <meta charset="UTF-8" />
     <title>E-Shop Management</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+
+    <style>
+      .row {
+        flex: 1; /* Allow row to grow to fill available space */
+      }
+
+      .sidebar {
+        position: sticky;
+        top: 0;
+        height: 100%;
+        /* Other styles for sidebar */
+      }
+
+    </style>
   </head>
   <body>
     <div th:fragment="layout">
@@ -36,71 +50,42 @@
       </nav>
 
       <!-- Sidebar -->
-      <div id="sidebar" class="text-white mt-3">
-        <div class="row m-0">
+      <div id="sidebar" class="text-white mt-4">  
+        <div class="row m-0" style="height: 90vh;">
           <div class="col-md-2 rounded-lg" style="background-color: #456AD8;">
             <h5 class="text-center pt-3">Category</h5>
             <hr class="sidebar-divider" />
-            <select name="category" id="" class="form-control my-1">
-              <option>--Select Category--</option>
-              <option>Laptop</option>
-              <option>Desktop</option>
-              <option>Accessory</option>
-              <option>Phone</option>
-            </select>
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  --Select Category--
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" th:each="category : ${categories}" th:href="'#' + ${category.id}" th:text="${category.cate_name}"></a>
+              </div>
+              </div>
+          
+              <div class="dropdown mt-3">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButtonModel" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      --Select Model--
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButtonModel">
+                      <a class="dropdown-item" th:each="model : ${promodel}" th:href="'#' + ${model.id}" th:text="${model.model_name}"></a>
+                  </div>
+              </div>
+            <!-- <select id="category" name="category" class="form-control my-1">
+              <option value="" disabled selected>--Select Category--</option>
+              <option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.cate_name}"> </option>
+              </select>           -->
 
-            <select name="model" id="" class="form-control my-1">
-              <option>--Select Model--</option>
-              <option>Mac</option>
-              <option>Dell</option>
-              <option>ROG</option>
-              <option>TUF</option>
-              <option>MSI</option>
-            </select>
+              <!-- <select id="model" name="model" class="form-control my-1">
+                  <option value="" disabled selected>--Select Model--</option>
+                  <option th:each="model : ${promodel}" th:value="${model.id}" th:text="${model.model_name}"></option>
+              </select> -->
 
             <!-- Divider -->
             <hr class="sidebar-divider" />
           </div>
-
-          <div class="col-md-10 container">
-            <div id="carousel" class="">
-              <!-- Top Selling -->
-              <div class="top">
-                <div class="row mb-5">
-                  <div class="col-md-4 col-sm-4">
-                    <div class="card shadow">
-                      <div class="card-body h-100 w-100">
-                        <img th:src="'https://via.placeholder.com/150?text=Best Selling Product Image'" class="h-75 w-100" alt="">
-                      </div>
-                      <div class="card-header text-white fw-bold" style="background-color: #456AD8;">
-                        <h5 class="text-center">Best Selling</h5>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-4 col-sm-4">
-                    <div class="card shadow">
-                      <div class="card-body h-100 w-100">
-                        <img th:src="'https://via.placeholder.com/150?text=Discounted Product Image'" class="h-75 w-100" alt="">
-                      </div>
-                      <div class="card-header text-white fw-bold" style="background-color: #456AD8;">
-                        <h5 class="text-center">Discounted Products</h5>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-4 col-sm-4">
-                    <div class="card shadow">
-                      <div class="card-body h-100 w-100">
-                        <img th:src="'https://via.placeholder.com/150?text=Hot Product Image'" class="h-75 w-100" alt="">
-                      </div>
-                      <div class="card-header text-white fw-bold" style="background-color: #456AD8;">
-                        <h5 class="text-center">New Arrival</h5>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <hr>
+          <div class="col-md-10">
             <!-- Content -->
             <div th:insert="~{::content}"></div>
           </div>
@@ -113,7 +98,7 @@
     <script src="https://kit.fontawesome.com/4000b889e3.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>
+    <!-- <script>
       document.addEventListener('DOMContentLoaded', function() {
         const categorySelect = document.querySelector('select[name="category"]');
         const modelSelect = document.querySelector('select[name="model"]');
@@ -140,7 +125,7 @@
           });
         });
       });
-    </script>
+    </script> -->
 
   </body>
 </html>
