@@ -42,6 +42,11 @@ public class Product {
     private String detailImageUrl;
 
 
+    public Product()
+    {
+
+    }
+
     public Product(String name, double price, String category, String image) {
         this.pro_name = name;
         this.sale_price = price;
